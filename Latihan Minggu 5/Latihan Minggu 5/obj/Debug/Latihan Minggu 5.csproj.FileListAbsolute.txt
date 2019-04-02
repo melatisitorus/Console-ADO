@@ -1,0 +1,20 @@
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 5\Latihan Minggu 5\Latihan Minggu 5\bin\Debug\Latihan Minggu 5.exe.config
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 5\Latihan Minggu 5\Latihan Minggu 5\bin\Debug\Latihan Minggu 5.exe
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 5\Latihan Minggu 5\Latihan Minggu 5\bin\Debug\Latihan Minggu 5.pdb
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 5\Latihan Minggu 5\Latihan Minggu 5\bin\Debug\EntityFramework.dll
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 5\Latihan Minggu 5\Latihan Minggu 5\bin\Debug\EntityFramework.SqlServer.dll
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 5\Latihan Minggu 5\Latihan Minggu 5\bin\Debug\EntityFramework.xml
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 5\Latihan Minggu 5\Latihan Minggu 5\bin\Debug\EntityFramework.SqlServer.xml
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 5\Latihan Minggu 5\Latihan Minggu 5\obj\Debug\Latihan Minggu 5.csprojResolveAssemblyReference.cache
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 5\Latihan Minggu 5\Latihan Minggu 5\obj\Debug\Latihan Minggu 5.exe
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 5\Latihan Minggu 5\Latihan Minggu 5\obj\Debug\Latihan Minggu 5.pdb
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 4\Latihan Minggu 5\Latihan Minggu 5\obj\Debug\Latihan Minggu 5.csprojResolveAssemblyReference.cache
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 4\Latihan Minggu 5\Latihan Minggu 5\bin\Debug\Latihan Minggu 5.exe.config
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 4\Latihan Minggu 5\Latihan Minggu 5\bin\Debug\Latihan Minggu 5.exe
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 4\Latihan Minggu 5\Latihan Minggu 5\bin\Debug\Latihan Minggu 5.pdb
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 4\Latihan Minggu 5\Latihan Minggu 5\bin\Debug\EntityFramework.dll
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 4\Latihan Minggu 5\Latihan Minggu 5\bin\Debug\EntityFramework.SqlServer.dll
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 4\Latihan Minggu 5\Latihan Minggu 5\bin\Debug\EntityFramework.xml
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 4\Latihan Minggu 5\Latihan Minggu 5\bin\Debug\EntityFramework.SqlServer.xml
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 4\Latihan Minggu 5\Latihan Minggu 5\obj\Debug\Latihan Minggu 5.exe
+F:\Melati A. Sitorus\Metrodata\Bootcamp\Minggu 4\Latihan Minggu 5\Latihan Minggu 5\obj\Debug\Latihan Minggu 5.pdb

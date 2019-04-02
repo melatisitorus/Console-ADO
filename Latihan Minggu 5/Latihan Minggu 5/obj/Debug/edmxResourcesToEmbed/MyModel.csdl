@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ArrayMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ArrayMEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TB_M_Items" EntityType="ArrayMModel.TB_M_Items" />
+    <EntitySet Name="TB_M_Sell" EntityType="ArrayMModel.TB_M_Sell" />
+    <EntitySet Name="TB_M_Suppliers" EntityType="ArrayMModel.TB_M_Suppliers" />
+    <EntitySet Name="TB_T_TransactionItem" EntityType="ArrayMModel.TB_T_TransactionItem" />
+    <AssociationSet Name="FK_dbo_Items_dbo_Suppliers_suppliers_Id" Association="ArrayMModel.FK_dbo_Items_dbo_Suppliers_suppliers_Id">
+      <End Role="TB_M_Suppliers" EntitySet="TB_M_Suppliers" />
+      <End Role="TB_M_Items" EntitySet="TB_M_Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TB_T_TransactionItem_dbo_TB_M_Items_TB_M_Item_Id" Association="ArrayMModel.FK_dbo_TB_T_TransactionItem_dbo_TB_M_Items_TB_M_Item_Id">
+      <End Role="TB_M_Items" EntitySet="TB_M_Items" />
+      <End Role="TB_T_TransactionItem" EntitySet="TB_T_TransactionItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TB_T_TransactionItem_dbo_TB_M_Sell_TB_M_Sell_Id" Association="ArrayMModel.FK_dbo_TB_T_TransactionItem_dbo_TB_M_Sell_TB_M_Sell_Id">
+      <End Role="TB_M_Sell" EntitySet="TB_M_Sell" />
+      <End Role="TB_T_TransactionItem" EntitySet="TB_T_TransactionItem" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TB_M_Items">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="isdelete" Type="Boolean" Nullable="false" />
+    <Property Name="suppliers_Id" Type="Int32" />
+    <Property Name="Price" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Stock" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="TB_M_Suppliers" Relationship="ArrayMModel.FK_dbo_Items_dbo_Suppliers_suppliers_Id" FromRole="TB_M_Items" ToRole="TB_M_Suppliers" />
+    <NavigationProperty Name="TB_T_TransactionItem" Relationship="ArrayMModel.FK_dbo_TB_T_TransactionItem_dbo_TB_M_Items_TB_M_Item_Id" FromRole="TB_M_Items" ToRole="TB_T_TransactionItem" />
+  </EntityType>
+  <EntityType Name="TB_M_Sell">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="TB_T_TransactionItem" Relationship="ArrayMModel.FK_dbo_TB_T_TransactionItem_dbo_TB_M_Sell_TB_M_Sell_Id" FromRole="TB_M_Sell" ToRole="TB_T_TransactionItem" />
+  </EntityType>
+  <EntityType Name="TB_M_Suppliers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="TB_M_Items" Relationship="ArrayMModel.FK_dbo_Items_dbo_Suppliers_suppliers_Id" FromRole="TB_M_Suppliers" ToRole="TB_M_Items" />
+  </EntityType>
+  <EntityType Name="TB_T_TransactionItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="TB_M_Item_Id" Type="Int32" />
+    <Property Name="TB_M_Sell_Id" Type="Int32" />
+    <NavigationProperty Name="TB_M_Items" Relationship="ArrayMModel.FK_dbo_TB_T_TransactionItem_dbo_TB_M_Items_TB_M_Item_Id" FromRole="TB_T_TransactionItem" ToRole="TB_M_Items" />
+    <NavigationProperty Name="TB_M_Sell" Relationship="ArrayMModel.FK_dbo_TB_T_TransactionItem_dbo_TB_M_Sell_TB_M_Sell_Id" FromRole="TB_T_TransactionItem" ToRole="TB_M_Sell" />
+  </EntityType>
+  <Association Name="FK_dbo_Items_dbo_Suppliers_suppliers_Id">
+    <End Type="ArrayMModel.TB_M_Suppliers" Role="TB_M_Suppliers" Multiplicity="0..1" />
+    <End Type="ArrayMModel.TB_M_Items" Role="TB_M_Items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_M_Suppliers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TB_M_Items">
+        <PropertyRef Name="suppliers_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TB_T_TransactionItem_dbo_TB_M_Items_TB_M_Item_Id">
+    <End Type="ArrayMModel.TB_M_Items" Role="TB_M_Items" Multiplicity="0..1" />
+    <End Type="ArrayMModel.TB_T_TransactionItem" Role="TB_T_TransactionItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_M_Items">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TB_T_TransactionItem">
+        <PropertyRef Name="TB_M_Item_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TB_T_TransactionItem_dbo_TB_M_Sell_TB_M_Sell_Id">
+    <End Type="ArrayMModel.TB_M_Sell" Role="TB_M_Sell" Multiplicity="0..1" />
+    <End Type="ArrayMModel.TB_T_TransactionItem" Role="TB_T_TransactionItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_M_Sell">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TB_T_TransactionItem">
+        <PropertyRef Name="TB_M_Sell_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
