@@ -35,7 +35,7 @@ namespace Latihan_Minggu_5
 
         public TB_T_TransactionItem get(int Id)
         {
-            var get = myContext.TB_T_TransactionItem.Find(Id);
+            var get = myContext.TB_T_TransactionItem.SingleOrDefault(x => x.Id == Id);
             return get;
         }
 
@@ -50,7 +50,7 @@ namespace Latihan_Minggu_5
             if (sell != null)
             {
 
-                //item = get();
+                //item = get(); 
                 //if (item != null)
                 //{
                     transactionItem.Quantity = Quantity;
