@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace Latihan_Minggu_5
 {
-     class SaveData
+     class saveData
     {
         public static MyContext myContext = new MyContext();
 
-        public SaveData (MyContext _myContext)
+        public saveData (MyContext _myContext)
         {
             myContext = _myContext;
         }
 
-        public SaveData()
+        public saveData()
         {
 
         }

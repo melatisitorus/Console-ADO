@@ -13,7 +13,7 @@ namespace Latihan_Minggu_5.Application
 
     {
         public static MyContext myContext = new MyContext();
-        SaveData savedata = new SaveData(myContext);
+        saveData savedata = new saveData(myContext);
         TB_M_Sell sell = new TB_M_Sell();
         bool status = false;
 

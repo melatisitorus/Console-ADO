@@ -13,7 +13,7 @@ namespace Latihan1
 
     {
         public static MyContext myContext = new MyContext();
-        SaveData savedata = new SaveData(myContext);
+        saveData savedata = new saveData(myContext);
         bool status = false;
         public bool DeleteSupplier(int Id)
         {
@@ -23,16 +23,6 @@ namespace Latihan1
             if (get != null)
             {
                 myContext.Entry(get).State = System.Data.Entity.EntityState.Deleted;
-                //    var result = (myContext.SaveChanges());
-                //    if (result > 0)
-                //    {
-                //        Console.Write("Delete Succes");
-                //        status = true;
-                //    }
-                //    else
-                //    {
-                //        Console.Write("Delete Failed");
-                //    }
                 return savedata.Save(myContext);
             }
             else
@@ -54,16 +44,6 @@ namespace Latihan1
             string Name = Console.ReadLine();
             supplier.Name = Name;
             myContext.TB_M_Suppliers.Add(supplier);
-            //var result = (myContext.SaveChanges());
-            //if (result > 0)
-            //{
-            //    status = true;
-            //    Console.Write("Insert Successfully");
-            //}
-            //else
-            //{
-            //    Console.Write("Insert Failed");
-            //}
             return savedata.Save(myContext); 
         }
 
@@ -78,16 +58,6 @@ namespace Latihan1
                 string Name = Console.ReadLine();
                 get.Name = Name;
                 myContext.Entry(get).State = EntityState.Modified;
-                //var result = (myContext.SaveChanges());
-                //if (result > 0)
-                //{
-                //    Console.Write("Update Succes");
-                //    status = true;
-                //}
-                //else
-                //{
-                //    Console.Write("Update Failed");
-                //}
                 return savedata.Save(myContext);
             }
             else

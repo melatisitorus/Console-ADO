@@ -11,8 +11,18 @@ namespace Latihan_Minggu_5
     public class ItemController : IItem
     {
         public static MyContext myContext = new MyContext();
-        SaveData savedata = new SaveData(myContext);
+        saveData savedata = new saveData(myContext);
         bool status = false;
+        private MyContext myContext1;
+
+        public ItemController(MyContext myContext1)
+        {
+            this.myContext1 = myContext1;
+        }
+
+        public ItemController()
+        {
+        }
 
         public bool DeleteItem(int Id)
         {

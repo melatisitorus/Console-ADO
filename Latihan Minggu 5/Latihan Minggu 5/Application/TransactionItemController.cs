@@ -2,6 +2,7 @@
 using Latihan_Minggu_5.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,11 @@ namespace Latihan_Minggu_5
     public class TransactionItemController :ITransactionItem
     {
         private MyContext myContext = new MyContext();
-        SaveData saveData = new SaveData();
+        saveData saveData = new saveData();
         bool status = false;
         private object savedata;
+
+        public int Quantity { get; private set; }
 
         public bool DeleteTransactionItem(int Id)
         {
@@ -24,7 +27,7 @@ namespace Latihan_Minggu_5
             if (get != null)
             {
                 myContext.Entry(get).State = EntityState.Modified;
-                //return savedata.Save(myContext);
+                return saveData.Save(myContext);
             }
             else
             {
@@ -41,26 +44,45 @@ namespace Latihan_Minggu_5
 
         public bool InsertTransactionItem(TB_T_TransactionItem transactionItem)
         {
-            TB_M_Items item = new TB_M_Items();
-            TB_M_Sell sell = new TB_M_Sell();
-            Console.Write("Insert Your Quantity : ");
-            int Quantity = Convert.ToInt16(Console.ReadLine());
-            Console.Write("Insert Sell : ");
-            sell = get();
-            if (sell != null)
             {
+                Collection <TB_T_TransactionItem> itemPurchase = new Collection <TB_T_TransactionItem>();
+                bool Purchase;
+                string decision;
+                Purchase = true;
+                int sell= Save(); 
 
-                //item = get(); 
-                //if (item != null)
-                //{
+                do
+                {
+                    Console.Write("Kode Barang Yang Ingin Di beli :");
+                    int Id = Convert.ToInt16(Console.ReadLine());
+                    Console.Write("Insert Your Quantity :");
+                    int quantity = Convert.ToInt16(Console.ReadLine());
+
+                    ItemController itemController = new ItemController(myContext);
+                    TB_T_TransactionItem transactionItem = new TB_T_TransactionItem();
                     transactionItem.Quantity = Quantity;
-                    transactionItem.TB_M_Items = item;
-                    transactionItem.TB_M_Sell = sell;
-                    myContext.TB_T_TransactionItem.Add(transactionItem);
-                //}
-             }
+                    transactionItem.TB_M_Items = itemController.get(Id);
+                    transactionItem.TB_M_Sell = get(sell);
+                    itemPurchase.Add(transactionItem);
 
-            return saveData.Save(myContext);
+                    Console.WriteLine("Lanjutkan Pembelian? (Y/N)");
+                    decision = Console.ReadLine();
+                    if (decision.ToUpper() == "Y")
+                    {
+                        Purchase = true;
+                    }
+                    else
+                    {
+                        Purchase = false;
+                    }
+                } while (Purchase == true);
+
+                foreach (var list in itemPurchase)
+                {
+                    myContext.TB_T.TransactionItem.Add(list);
+                }
+                return Latihan_Minggu_5.saveData.Save(myContext);
+            }
         }
 
         private TB_M_Sell get()
@@ -75,7 +97,7 @@ namespace Latihan_Minggu_5
             int Quantity;
             Console.Write("Insert your Id : ");
             Id = Convert.ToInt16(Console.ReadLine());
-            var get = myContext.TB_T_TransactionItem.Find(Id);
+            var get = myContext.TB_T_TransactionItem.();
             if (get != null)
             {
                 Console.Write("Insert Your Quantity :");

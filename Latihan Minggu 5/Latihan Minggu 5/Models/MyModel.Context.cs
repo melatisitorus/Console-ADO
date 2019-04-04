@@ -29,5 +29,6 @@ namespace Latihan_Minggu_5.Models
         public virtual DbSet<TB_M_Sell> TB_M_Sell { get; set; }
         public virtual DbSet<TB_M_Suppliers> TB_M_Suppliers { get; set; }
         public virtual DbSet<TB_T_TransactionItem> TB_T_TransactionItem { get; set; }
+        public object TB_T { get; internal set; }
     }
 }

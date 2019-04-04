@@ -88,27 +88,22 @@ namespace Latihan_Minggu_5
             switch (Pilih)
             {
                 case 1:
-                    iSupplier = new SupplierController();
-                    supplierController.viewAllData();
+                    iSupplier.viewAllData();
                     Console.Read();
                     break;
                 case 2:
-                    iSupplier = new SupplierController();
-                    supplierController.get(Id);
+                    iSupplier.get(Id);
                     Console.Read();
                     break;
                 case 3:
-                    iSupplier = new SupplierController();
                     iSupplier.InsertSupplier(supplier);
                     Console.Read();
                     break;
                 case 4:
-                    iSupplier = new SupplierController();
                     iSupplier.UpdateSupplier(Id, supplier);
                     Console.Read();
                     break;
                 case 5:
-                    iSupplier = new SupplierController();
                     iSupplier.DeleteSupplier(Id);
                     Console.Read();
                     break;
